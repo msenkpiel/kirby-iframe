@@ -1,0 +1,16 @@
+{
+  "name": "msenkpiel/kirby-iframe",
+  "description": "Plugin to add an iFrame to Kirby CMS",
+  "license": "MIT",
+  "type": "kirby-plugin",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Marco Senkpiel",
+      "email": "marco.senkpiel@gmail.com"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.1"
+  }
+}
