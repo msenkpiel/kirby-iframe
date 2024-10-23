@@ -1,6 +1,11 @@
 # kirby-iframe
 Plugin to add an iFrame to Kirby CMS
 
+## Installation
+```
+composer require msenkpiel/kirby-iframe
+```
+
 ## Config options
 ```
 msenkpiel.iframe = [
