@@ -12,8 +12,8 @@ Kirby::plugin('msenkpiel/iframe', [
     'areas' => [
         'msenkpiel.iframe' => function ($kirby) {
             return [
-                'label' => option('msenkpiel.iframe.nav.label'),
-                'icon' => option('msenkpiel.iframe.nav.icon'),
+                'label' => option('msenkpiel.iframe.label'),
+                'icon' => option('msenkpiel.iframe.icon'),
                 'disabled' => false,
                 'menu' => true,
                 'link' => 'ms-iframe',
