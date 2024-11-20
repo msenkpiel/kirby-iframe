@@ -3,7 +3,6 @@
   "description": "Plugin to add an iFrame to Kirby CMS",
   "license": "MIT",
   "type": "kirby-plugin",
-  "version": "1.0.3",
   "authors": [
     {
       "name": "Marco Senkpiel",
