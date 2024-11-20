@@ -18,23 +18,24 @@ Due to the iframe security policies, it is not possible to read the height of th
 
 ```php
 // site/config/config.php
-
-msenkpiel.iframe = [
-    
-     // panel navigation settings
-    'label' => 'Navigation Label',
-    'icon' => 'box',
-    
-    // panel frame title
-    'title' => 'Frame title',
-    
-    // iframe url
-    'url' => '',
-    
-    // iframe height based on container width
-    'breakpoints' => [
-        0 => 500, // mobile
-        992 => 3000 // desktop
+return [
+    'msenkpiel.iframe' = [
+        
+         // panel navigation settings
+        'label' => 'Navigation Label',
+        'icon' => 'box',
+        
+        // panel frame title
+        'title' => 'Frame title',
+        
+        // iframe url
+        'url' => '',
+        
+        // iframe height based on container width
+        'breakpoints' => [
+            0 => 500, // mobile
+            992 => 3000 // desktop
+        ]
     ]
 ]
 ```
