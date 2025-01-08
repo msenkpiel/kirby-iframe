@@ -19,7 +19,7 @@ Due to the iframe security policies, it is not possible to read the height of th
 ```php
 // site/config/config.php
 return [
-    'msenkpiel.iframe' = [
+    'msenkpiel.iframe' => [
         
          // panel navigation settings
         'label' => 'Navigation Label',
