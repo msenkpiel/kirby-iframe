@@ -1,0 +1,14 @@
+{
+    "name": "kirby-iframe",
+    "private": true,
+    "version": "0.1.0",
+    "description": "Panel frontend for the Kirby iFrame plugin",
+    "scripts": {
+        "dev": "kirbyup serve src/index.js",
+        "watch": "kirbyup src/index.js --watch",
+        "build": "kirbyup src/index.js"
+    },
+    "devDependencies": {
+        "kirbyup": "^3.4.1"
+    }
+}
