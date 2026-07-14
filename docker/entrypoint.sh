@@ -8,6 +8,7 @@ PLUGIN_TARGET="${APP_DIR}/site/plugins/kirby-iframe"
 KIRBY_VERSION="${KIRBY_VERSION:-^5}"
 KIRBY_ADMIN_EMAIL="${KIRBY_ADMIN_EMAIL:-admin@example.test}"
 KIRBY_ADMIN_PASSWORD="${KIRBY_ADMIN_PASSWORD:-admin1234}"
+KIRBY_SITE_URL="${KIRBY_SITE_URL:-http://localhost:8080}"
 IFRAME_URL="${IFRAME_URL:-/iframe-target}"
 
 if [ ! -f "${APP_DIR}/kirby/router.php" ]; then
@@ -15,7 +16,7 @@ if [ ! -f "${APP_DIR}/kirby/router.php" ]; then
     composer create-project --no-interaction --prefer-dist getkirby/plainkit "${APP_DIR}"
 
     if [ -n "${KIRBY_VERSION}" ]; then
-        composer --working-dir="${APP_DIR}" require --no-interaction --prefer-dist "getkirby/cms:${KIRBY_VERSION}"
+        composer --working-dir="${APP_DIR}" require --no-interaction --prefer-dist --with-all-dependencies "getkirby/cms:${KIRBY_VERSION}"
     fi
 fi
 
@@ -29,8 +30,12 @@ cat > "${APP_DIR}/site/config/config.php" <<'PHP'
 
 return [
     'debug' => true,
+    'url' => getenv('KIRBY_SITE_URL') ?: 'http://localhost:8080',
     'panel' => [
-        'install' => false
+        'install' => false,
+        'vue' => [
+            'compiler' => false
+        ]
     ],
     'msenkpiel.iframe' => [
         'label' => 'iFrame Test',
@@ -91,4 +96,6 @@ if ($kirby->users()->findBy('email', $email) === null) {
 PHP
 
 echo "Starting Kirby on http://0.0.0.0:8000"
+echo "Public site URL: ${KIRBY_SITE_URL}"
+echo "Panel URL: ${KIRBY_SITE_URL}/panel"
 exec php -S 0.0.0.0:8000 "${APP_DIR}/kirby/router.php"

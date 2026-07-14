@@ -9,6 +9,7 @@ services:
             KIRBY_ADMIN_EMAIL: "${KIRBY_ADMIN_EMAIL:-admin@example.test}"
             KIRBY_ADMIN_PASSWORD: "${KIRBY_ADMIN_PASSWORD:-admin1234}"
             KIRBY_VERSION: "${KIRBY_VERSION:-^5}"
+            KIRBY_SITE_URL: "${KIRBY_SITE_URL:-http://localhost:8080}"
             IFRAME_URL: "${IFRAME_URL:-/iframe-target}"
         volumes:
             - .:/plugin:ro
