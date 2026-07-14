@@ -1,0 +1,18 @@
+services:
+    kirby:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        ports:
+            - "${KIRBY_PORT:-8080}:8000"
+        environment:
+            KIRBY_ADMIN_EMAIL: "${KIRBY_ADMIN_EMAIL:-admin@example.test}"
+            KIRBY_ADMIN_PASSWORD: "${KIRBY_ADMIN_PASSWORD:-admin1234}"
+            KIRBY_VERSION: "${KIRBY_VERSION:-^5}"
+            IFRAME_URL: "${IFRAME_URL:-/iframe-target}"
+        volumes:
+            - .:/plugin:ro
+            - kirby-site:/var/www/html
+
+volumes:
+    kirby-site:
