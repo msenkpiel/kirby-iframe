@@ -56,17 +56,21 @@ docker compose up --build
 - Panel: <http://localhost:8080/panel>
 - Login: `admin@example.test` / `admin1234`
 
-The default Panel account is only intended for this local test environment. You
-can override the credentials and iframe URL with environment variables:
+The default Panel account is only intended for this local test environment. The
+Docker setup configures Kirby's public URL as `http://localhost:8080` so Panel
+redirects point to the host URL instead of the container bind address.
+
+You can override the credentials, Kirby URL and iframe URL with environment
+variables:
 
 ```sh
-KIRBY_ADMIN_EMAIL=admin@example.test KIRBY_ADMIN_PASSWORD=admin1234 IFRAME_URL=/iframe-target docker compose up --build
+KIRBY_ADMIN_EMAIL=admin@example.test KIRBY_ADMIN_PASSWORD=admin1234 KIRBY_SITE_URL=http://localhost:8080 IFRAME_URL=/iframe-target docker compose up --build
 ```
 
-To use a different host port:
+To use a different host port, set both the published port and Kirby's public URL:
 
 ```sh
-KIRBY_PORT=8081 docker compose up --build
+KIRBY_PORT=8081 KIRBY_SITE_URL=http://localhost:8081 docker compose up --build
 ```
 
 To remove the temporary Kirby installation and start fresh:
