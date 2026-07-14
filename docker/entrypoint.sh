@@ -32,7 +32,10 @@ return [
     'debug' => true,
     'url' => getenv('KIRBY_SITE_URL') ?: 'http://localhost:8080',
     'panel' => [
-        'install' => false
+        'install' => false,
+        'vue' => [
+            'compiler' => false
+        ]
     ],
     'msenkpiel.iframe' => [
         'label' => 'iFrame Test',
@@ -94,4 +97,5 @@ PHP
 
 echo "Starting Kirby on http://0.0.0.0:8000"
 echo "Public site URL: ${KIRBY_SITE_URL}"
+echo "Panel URL: ${KIRBY_SITE_URL}/panel"
 exec php -S 0.0.0.0:8000 "${APP_DIR}/kirby/router.php"
