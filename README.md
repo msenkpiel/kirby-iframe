@@ -49,7 +49,7 @@ into `site/plugins/kirby-iframe` and starts Kirby's built-in PHP server.
 ### Docker test environment
 
 ```sh
-docker compose up --build
+make docker-up
 ```
 
 - Website: <http://localhost:8080>
@@ -64,19 +64,31 @@ You can override the credentials, Kirby URL and iframe URL with environment
 variables:
 
 ```sh
-KIRBY_ADMIN_EMAIL=admin@example.test KIRBY_ADMIN_PASSWORD=admin1234 KIRBY_SITE_URL=http://localhost:8080 IFRAME_URL=/iframe-target docker compose up --build
+KIRBY_ADMIN_EMAIL=admin@example.test KIRBY_ADMIN_PASSWORD=admin1234 KIRBY_SITE_URL=http://localhost:8080 IFRAME_URL=/iframe-target make docker-up
 ```
 
 To use a different host port, set both the published port and Kirby's public URL:
 
 ```sh
-KIRBY_PORT=8081 KIRBY_SITE_URL=http://localhost:8081 docker compose up --build
+KIRBY_PORT=8081 KIRBY_SITE_URL=http://localhost:8081 make docker-up
+```
+
+To test with Kirby 4:
+
+```sh
+make docker-up-kirby4
+```
+
+To test with the Kirby 6 preview:
+
+```sh
+make docker-up-kirby6
 ```
 
 To remove the temporary Kirby installation and start fresh:
 
 ```sh
-docker compose down -v
+make docker-reset
 ```
 
 ### Run Kirby-Up
@@ -84,7 +96,13 @@ docker compose down -v
 The Panel view is built from a Vue component with kirbyup.
 
 ```sh
-npm install
-npm run dev
-npm run build
+make install
+make dev
+make build
+```
+
+Run local build and Docker Compose config checks:
+
+```sh
+make test
 ```

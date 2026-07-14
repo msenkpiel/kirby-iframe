@@ -16,7 +16,7 @@ if [ ! -f "${APP_DIR}/kirby/router.php" ]; then
     composer create-project --no-interaction --prefer-dist getkirby/plainkit "${APP_DIR}"
 
     if [ -n "${KIRBY_VERSION}" ]; then
-        composer --working-dir="${APP_DIR}" require --no-interaction --prefer-dist "getkirby/cms:${KIRBY_VERSION}"
+        composer --working-dir="${APP_DIR}" require --no-interaction --prefer-dist --with-all-dependencies "getkirby/cms:${KIRBY_VERSION}"
     fi
 fi
 
